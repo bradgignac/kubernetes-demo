@@ -1,0 +1,1 @@
+KUBERNETES_DEMO_BUILD_TIME="$(date)" bundle exec puma
