@@ -1,11 +1,13 @@
 require 'sinatra'
 
-BUILD_TIME = 'KUBERNETES_DEMO_BUILD_TIME'
-
 get '/' do
-  unless ENV.key?(BUILD_TIME)
-    raise 'No build time available in environment!'
+  unless File.exists?('version.txt')
+    raise 'No version available!'
   end
 
-  ENV[BUILD_TIME]
+  File.read('version.txt')
+end
+
+error do
+  "Internal Server Error - #{env['sinatra.error'].message}"
 end

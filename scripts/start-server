@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bundle exec puma --port 8000
